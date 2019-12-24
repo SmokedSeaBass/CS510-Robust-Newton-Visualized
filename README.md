@@ -31,7 +31,7 @@ Each version in the "Releases" tab above has a Python file `RobustVisualizer.py`
 
 ---
 ### Changelog
-#### Version 1.0.0
+#### Version 0.1.0
 * Initial release
 * Supports 4 root-finding algorithms (Newton, Halley, Robust Newton, Hybrid Newton)
 * Output is a 401x401 pixel graph (actual image size may vary) of the polynomiograph of the input polynomial
