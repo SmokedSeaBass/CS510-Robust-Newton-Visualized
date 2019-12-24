@@ -46,10 +46,10 @@ class MyPolynomial:
 
 quietMode = True		# Suppress most print statements
 rectWidth = 2			# Create polygraph of region (-rectWidth - rectWidth*j) to (rectWidth + rectWidth*j)
-maxIterations = 2**16	# Number of iterations to compute until declaring non-convergence to a root
+maxIterations = 2**12	# Number of iterations to compute until declaring non-convergence to a root
 deltaError = 1E-10		# Declare a root found when two iterations differ by this amount or less
 criticalError = 1E-8	# Consider a point a critical point when it is this close to a critical point
-resolution = 20			# Number of colored pixels in the output polynomiograph minus one and divided by two (i.e. an easily divisable even number like 4, 80, or 200)
+resolution = 200			# Number of colored pixels in the output polynomiograph minus one and divided by two (i.e. an easily divisable even number like 4, 80, or 200)
 
 def main(method):
 	size = resolution*2 + 1
