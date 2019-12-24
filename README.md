@@ -1,5 +1,5 @@
 #  CS510 Robust Newton's Method Project
-Latest Version: 1.0.0
+Latest Version: 0.1.0
 
 ---
 This program takes an input polynomial and will iterate using any of four iterative fixed-point root-finding methods (Newton's method, Halley's method, Robust Newton's method, Hybrid Newton's method) on a region in the complex plane to visually display the convergence of points in the region to roots of the polynomial.  The actual roots' locations are also plotted.
