@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 from matplotlib.colors import hsv_to_rgb
 import numpy as np
-from scipy import special
+#from scipy import special
 from collections import Counter
 import math
 import re
@@ -46,10 +46,10 @@ class MyPolynomial:
 
 quietMode = True		# Suppress most print statements
 rectWidth = 2			# Create polygraph of region (-rectWidth - rectWidth*j) to (rectWidth + rectWidth*j)
-maxIterations = 2**12	# Number of iterations to compute until declaring non-convergence to a root
+maxIterations = 2**16	# Number of iterations to compute until declaring non-convergence to a root
 deltaError = 1E-10		# Declare a root found when two iterations differ by this amount or less
 criticalError = 1E-8	# Consider a point a critical point when it is this close to a critical point
-resolution = 200			# Number of colored pixels in the output polynomiograph minus one and divided by two (i.e. an easily divisable even number like 4, 80, or 200)
+resolution = 20			# Number of colored pixels in the output polynomiograph minus one and divided by two (i.e. an easily divisable even number like 4, 80, or 200)
 
 def main(method):
 	size = resolution*2 + 1
@@ -79,7 +79,7 @@ def main(method):
 				roots.append(root)
 			A.append((i, j, roots.index(root)))		# change to index of root in root list to give unique value on colormap
 	execTimeDelta = time.time() - execTimeStart
-	A = np.array(A).T
+	A = np.transpose(np.array(A))
 	x, y, z = [item.flatten() for item in A]
 	idx = np.round((x - x.min()) / dx).astype(np.int)
 	idy = np.round((y - y.min()) / dy).astype(np.int)
@@ -156,7 +156,7 @@ def robustMethod(z, p):
 	while (abs(p_k) < criticalError):			# Find smallest degree of derivation 'k' for which d^k/dx^k[P(z0)] is not 0
 		p_k = p.eval(z, k)
 		k = k + 1
-	u_k = 1.0/(special.factorial(k)) * p_0 * np.conjugate(p_k)
+	u_k = 1.0/(math.factorial(k)) * p_0 * np.conjugate(p_k)
 	y = 2.0 * np.real(u_k**(k-1))
 	d = -2.0 * np.imag(u_k**(k-1))
 	c_k = max(abs(y),abs(d))
@@ -171,7 +171,7 @@ def robustMethod(z, p):
 		theta = 3.0*np.pi/(2.0*k)
 	A = abs(p_0)
 	for j in range(1, p.degree + 1):
-		A_j = abs(p.eval(z, j))/(special.factorial(j))
+		A_j = abs(p.eval(z, j))/(math.factorial(j))
 		A = max(A, A_j)
 	C_k = c_k * (abs(u_k))**(2-k)/(6.0*A*A)
 	return z + C_k/3.0 * u_k/abs(u_k) * complex(math.cos(theta), math.sin(theta))
