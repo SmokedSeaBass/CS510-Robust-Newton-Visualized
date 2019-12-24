@@ -62,14 +62,11 @@ def main(method):
 	A = []
 	roots = []
 	total_rounds = 0
-	print("Beginning root computation...0%")
-	progress = 0
+	print("Beginning root computation...")
+	printProgressBar(0, x_max-x_min, "Progress:", "Complete", length=20)
 	execTimeStart = time.time()
 	for i in x:
-		for u in range(5, 100, 5):
-			if (i >= (x_min + (x_max - x_min)*(u / 100)) and progress < u):
-				progress = u
-				print(str(u) + "%")
+		printProgressBar(i-x_min, x_max-x_min, "Progress:", "Complete", length=20)
 		for j in y:
 			root, rounds = findRoot(method, P, np.complex(i, j))
 			total_rounds = total_rounds + rounds
@@ -186,6 +183,27 @@ def hybridMethod(z, p):
 	if (np.isnan(result)):
 		return robustMethod(z, p)
 	return result
+
+def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = '█', printEnd = "\r"):
+    """
+    Call in a loop to create terminal progress bar
+    @params:
+        iteration   - Required  : current iteration (Int)
+        total       - Required  : total iterations (Int)
+        prefix      - Optional  : prefix string (Str)
+        suffix      - Optional  : suffix string (Str)
+        decimals    - Optional  : positive number of decimals in percent complete (Int)
+        length      - Optional  : character length of bar (Int)
+        fill        - Optional  : bar fill character (Str)
+        printEnd    - Optional  : end character (e.g. "\r", "\r\n") (Str)
+    """
+    percent = ("{0:." + str(decimals) + "f}").format(100 * (iteration / float(total)))
+    filledLength = int(length * iteration // total)
+    bar = fill * filledLength + '-' * (length - filledLength)
+    print('\r%s |%s| %s%% %s' % (prefix, bar, percent, suffix), end = printEnd)
+    # Print New Line on Complete
+    if iteration == total: 
+        print()
 
 if __name__ == "__main__":
 	P, method = getInput()
