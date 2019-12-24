@@ -25,6 +25,6 @@ The easiest method is to use the binary (Windows only) found under the "Releases
     ```
 
 ---
-## Credits
+### Credits
 * SeaBass (smokedseabass@gmail.com) - Project Creator/Lead Programmer
 * Bahman Kalantari (kalantar@cs.rutgers.edu) - Project Designer/Creator of "Robust Newton's Method"
