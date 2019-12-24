@@ -4,7 +4,8 @@ Latest Version: 1.0.0
 ---
 This program takes an input polynomial and will iterate using any of four iterative fixed-point root-finding methods (Newton's method, Halley's method, Robust Newton's method, Hybrid Newton's method) on a region in the complex plane to visually display the convergence of points in the region to roots of the polynomial.  The actual roots' locations are also plotted.
 
-The graphed polynomiograph is interactable!  One can zoom or pan as they please, and mouse over regions to see the index of the root to which they converge to.  The list of roots, as well as computation costs, are listed in the console.  **NOTE: When using the .exe version, the console will close when the graph is closed.**
+The graphed polynomiograph is interactable!  One can zoom or pan as they please, and mouse over regions to see the index of the root to which they converge to.  The list of roots, as well as computation costs, are listed in the console.  
+**NOTE: When using the .exe version, the console will close when the graph is closed.**
 
 ---
 ### Dependencies
