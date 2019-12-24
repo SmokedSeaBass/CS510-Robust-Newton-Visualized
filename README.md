@@ -12,7 +12,7 @@ This program takes an input polynomial and will iterate using any of four iterat
 
 ---
 ### How to Use
-The easiest method is to use the binary (Windows only) found under the "Releases" tab.  Otherwise, follow the instructions below to run the program from source.
+Each version in the "Releases" tab above has a Python file `main.py` and a Windows executable `RobustVisualizer.exe`. While either of these work, it is *highly* recommended that the Python file is run per the instructions below as it is much faster and more stable (and might not even be supported in the future).  Once could also run the `main.py` straight from source, however this version is unstable and might not even work.
 
 #### Instructions
 1. Install Python 3 (verison 3.7 or newer) from [here](https://www.python.org/downloads/).
